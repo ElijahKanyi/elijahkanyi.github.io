@@ -357,12 +357,4 @@ footer p:nth-child(2){
     font-size: 15px;
 }
 
-@media screen and (max-width:600px){
-    .hero{
-    height: 100vh;
-    width: 50%;
-    background-image: url(IMAGES/WEBBACKGROUND.png);
-    background-size: cover;
-    background-position: center;
 
-}
