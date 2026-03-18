@@ -1,125 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EprozDigital Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ePROZ DIGITAL</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+}
+
+/* NAVBAR */
+header {
+    background: #FFD700;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #0047AB;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('docs/Untitled-1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+}
+
+.hero button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    background: #00d4ff;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* SECTIONS */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* PORTFOLIO */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* CONTACT */
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+button.submit-btn {
+    background: #00d4ff;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: green;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px){
+    .cards, .gallery {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width: 600px){
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: black;
+        right: 0;
+        top: 60px;
+        width: 200px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .cards, .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
+
 <body>
-   <!--hero section start-->
 
-   <div class="hero">
-     <nav>
-        <h2 class="logo">Eproz<span>Digital</span></h2>
-        <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">Skills</a></li>
-            <li><a href="">Contact us</a></li>
+<header>
+    <div class="logo">ePROZ DIGITAL</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav>
+        <ul id="menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#" class="btn">Subscribe</a>
-     </nav>
+    </nav>
+</header>
 
-        <div class="content">
-          <h4>Hello, my name is</h4>
-          <h1>Elijah <span>Kanyi</span></h1>
-          <h3>I am a Digital Marketer.</h3>
-            <div class="newsletter">
-              <form action="#">
-                <input type="email" name="email" id="mail" placeholder="Enter Your Email">
-                <input type="submit" name="submit" value="Let's Start">
-              </form>
-            </div>
-        </div>
-    </div>
+<!-- HERO -->
+<section class="hero">
+    <h1>Build Your Brand With ePROZ DIGITAL</h1>
+    <p>Printing | Design | Digital Marketing</p>
+    <button onclick="scrollToContact()">Get a Quote</button>
+</section>
 
-<!--About section start-->
-<section class="about">
-    <div class="main">
-        <img src="IMAGES/me.jpg" alt="">
-        <div class="about-text">
-            <h2>About Me</h2>
-            <h5>Developer <span>and Designer</span></h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam tempore perferendis error et omnis animi nam illo blanditiis, velit molestiae dolores quo sunt corporis reiciendis, nihil excepturi dicta iste? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum rerum placeat voluptates praesentium temporibus exercitationem sit aliquid non aperiam, dolor et molestias quisquam odit possimus. Explicabo exercitationem soluta corrupti eligendi.</p>
-            <button type="button"> Let's Talk</button>
+<!-- ABOUT -->
+<section id="about" class="section">
+    <h2>About Us</h2>
+    <p>
+        We are a creative branding and digital marketing boutique helping businesses grow through design, printing and content creation.
+    </p>
+</section>
 
-        </div>
+<!-- SERVICES -->
+<section id="services" class="section">
+    <h2>Our Services</h2>
+    <div class="cards">
+        <div class="card"><h3>Tshirt Printing</h3><p>Custom and bulk printing.</p></div>
+        <div class="card"><h3>Graphic Design</h3><p>Logos, posters, branding.</p></div>
+        <div class="card"><h3>Photography</h3><p>Professional shoots.</p></div>
+        <div class="card"><h3>Videography</h3><p>High-quality video production.</p></div>
     </div>
 </section>
 
- <!--services section start-->  
-
-<div class="service">
-    <div class="title">
-        <h2>Our Services</h2>
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section">
+    <h2>Our Work</h2>
+    <div class="gallery">
+        <img src="docs/2344.png">
+        <img src="docs/3M CARWASH.jpg">
+        <img src="docs/window.png">
+        <img src="docs/IMAGE.png">
     </div>
+     <div class="gallery">
+        <img src="docs/tshirt print.jpg">
+        <img src="docs/a9865d43627b762cc058d580f790e85a.jpg">
+        <img src="docs/Cute Coquette T-Shirts Template Design Mockup.jpg">
+        <img src="docs/YAHWEH.jpg">
+    </div>
+</section>
 
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
 
-    <div class="box">
-        <div class="card">
-            <img src="IMAGES/GIBBS final.png" alt="">
-            <h5>Web development</h5>
-            <div class="pra">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere omnis officia facilis minus deleniti error sapiente, fugiat hic magni....</p> 
+    <form onsubmit="sendWhatsApp(event)">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="text" id="service" placeholder="Service Needed" required>
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button class="submit-btn">Send Inquiry</button>
+    </form>
 
-            <p style="text-align: center;">
-                <a class="button" href="#">Read More</a>
-            </p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="IMAGES/GIBBS final.png" alt="">
-            <h5>Web development</h5>
-            <div class="pra">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere omnis officia facilis minus deleniti error sapiente, fugiat hic magni....</p> 
-
-            <p style="text-align: center;">
-                <a class="button" href="#">Read More</a>
-            </p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="IMAGES/GIBBS final.png" alt="">
-            <h5>Web development</h5>
-            <div class="pra">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere omnis officia facilis minus deleniti error sapiente, fugiat hic magni....</p> 
-
-            <p style="text-align: center;">
-                <a class="button" href="#">Read More</a>
-            </p>
-            </div>
-        </div>
-    </div> 
-</div>
-
-
-<!--Contact me-->
-
-<div class="contact-me">
-    <p>Let me get you a beautiful LinkedIn Profile, Resume, Cover Letter....</p>
-    <a href="" class="button-two">Hire me</a>
-
-</div>
-
-<!--footer start-->
+    <p style="margin-top:20px;">
+        Or call: 0704286251 / 0759904933<br>
+        Email: EprozDigital@gmail.com
+    </p>
+</section>
 
 <footer>
-    <p>Elijah Kanyi</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, rem quisquam dolor suscipit laborum praesentium fugiat odit porro architecto necessitatibus aperiam </p>
-
-    <div class="social">
-        <a href="">icon</a>
-        <a href="">icon</a>
-        <a href="">icon</a>
-    </div>
-
-    <p class="end">CopyRight by Elijah Kanyi</p>
+    <p>© 2026 ePROZ DIGITAL</p>
 </footer>
-    
+
+<!-- WHATSAPP FLOAT -->
+<a class="whatsapp" href="https://wa.me/254704286251" target="_blank">💬</a>
+
+<script>
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("show");
+}
+
+function scrollToContact(){
+    document.getElementById("contact").scrollIntoView({behavior:'smooth'});
+}
+
+function sendWhatsApp(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let service = document.getElementById("service").value;
+    let message = document.getElementById("message").value;
+
+    let url = "https://wa.me/254704286251?text="
+        + "Hello, my name is " + name
+        + "%0AI need: " + service
+        + "%0AMessage: " + message;
+
+    window.open(url, '_blank');
+}
+</script>
+
 </body>
 </html>
